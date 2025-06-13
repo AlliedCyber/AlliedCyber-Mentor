@@ -1,114 +1,265 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
   <title>AlliedCyber Mentor – Cybersecurity Mentorship</title>
-  <meta name="description" content="AlliedCyber Mentor provides cybersecurity mentorship, real-world guidance, and career support for aspiring professionals and certification seekers." />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet" />
+  <meta name="description" content="AlliedCyber Mentor provides cybersecurity mentorship, real-world guidance, and career support for aspiring professionals and certification seekers."/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet"/>
   <style>
+    :root {
+      --blue: #60a5fa;
+      --purple: #8b5cf6;
+      --cyan: #22d3ee;
+      --pink: #ec4899;
+      --dark: #0f172a;
+      --dark-overlay: rgba(15,23,42,0.85);
+    }
+    * { box-sizing: border-box; }
     body {
       font-family: 'Inter', sans-serif;
       margin: 0;
-      color: #ffffff;
-      background: linear-gradient(rgba(15, 23, 42, 0.85), rgba(15, 23, 42, 0.85)), url('/mnt/data/239b2e47-be1a-4caf-a09a-6ec231f5266e.jpg') no-repeat center center fixed;
-      background-size: cover;
+      color: #fff;
+      background: var(--dark-overlay),
+        url('https://images.unsplash.com/photo-1581091012184-56cd29a28f91?ixlib=rb-4.0.3&auto=format&fit=crop&w=1500&q=80')
+        no-repeat center / cover fixed;
     }
     header {
-      background: rgba(0, 0, 0, 0.6);
-      padding: 3rem 2rem;
-      text-align: center;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(0,0,0,0.7);
+      padding: 2rem;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(5px);
     }
     header h1 {
       margin: 0;
-      font-size: 3rem;
-      color: #60a5fa;
+      font-size: 2.5rem;
+      color: var(--cyan);
+      letter-spacing: 1px;
     }
-    header p {
-      font-size: 1.25rem;
-      margin-top: 0.5rem;
-    }
-    .container {
-      padding: 2rem;
-      max-width: 900px;
-      margin: 2rem auto;
-      background: rgba(0, 0, 0, 0.7);
-      border-radius: 12px;
-      box-shadow: 0 0 25px rgba(0,0,0,0.6);
-    }
-    .section {
-      margin-bottom: 2rem;
-    }
-    .section h2 {
-      font-size: 1.75rem;
-      margin-bottom: 0.5rem;
-      color: #93c5fd;
-    }
-    .cta {
-      background: #3b82f6;
-      color: white;
-      padding: 1rem 2rem;
-      text-align: center;
-      border-radius: 8px;
-      font-size: 1.2rem;
+    header nav a {
+      color: #ddd;
+      margin-left: 1.5rem;
       text-decoration: none;
-      display: inline-block;
-      margin-top: 1rem;
+      font-weight: 600;
+      transition: color .3s;
     }
-    .features ul, .section ul {
-      padding-left: 1.5rem;
+    header nav a:hover { color: var(--cyan); }
+    .hero {
+      padding: 6rem 2rem;
+      text-align: center;
     }
-    .features li, .section li {
-      margin-bottom: 0.5rem;
+    .hero h2 {
+      font-size: 3rem;
+      background: linear-gradient(90deg, var(--cyan), var(--purple));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .hero p {
+      font-size: 1.25rem;
+      max-width: 700px;
+      margin: 1rem auto 2rem;
+      line-height: 1.6;
+    }
+    .hero .cta {
+      background: var(--cyan);
+      color: var(--dark);
+      padding: 1rem 2rem;
+      border: none;
+      border-radius: 50px;
+      cursor: pointer;
+      font-size: 1.2rem;
+      font-weight: 600;
+      box-shadow: 0px 4px 15px rgba(0,0,0,0.3);
+      transition: background .3s, transform .3s;
+    }
+    .hero .cta:hover {
+      background: var(--purple);
+      transform: translateY(-3px);
+    }
+    .main-grid {
+      display: grid;
+      grid-template-columns: 1fr min(70ch, 900px) 1fr;
+      gap: 2rem;
+      padding: 4rem 2rem;
+    }
+    .main-grid > div {
+      background: rgba(0,0,0,0.6);
+      padding: 2rem;
+      border-radius: 12px;
+      position: relative;
+      overflow: hidden;
+    }
+    .left, .right {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      font-size: .95rem;
+      opacity: 0.9;
+    }
+    .placeholder {
+      background: rgba(255,255,255,0.1);
+      padding: .75rem;
+      border-radius: 6px;
+      font-style: italic;
+    }
+    .center .section {
+      margin-bottom: 3rem;
+    }
+    .center .section h3 {
+      font-size: 1.75rem;
+      color: var(--cyan);
+      margin-bottom: 1rem;
+      position: relative;
+    }
+    .center .section h3::after {
+      content: '';
+      width: 60px;
+      height: 4px;
+      background: var(--purple);
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      border-radius: 2px;
+    }
+    .center .feature-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px,1fr));
+      gap: 1rem;
+    }
+    .feature-item {
+      background: rgba(255,255,255,0.05);
+      padding: 1rem;
+      border-radius: 8px;
+      display: flex;
+      align-items: flex-start;
+      gap: .75rem;
+      transition: transform .3s, background .3s;
+      cursor: default;
+    }
+    .feature-item:hover {
+      transform: translateY(-3px);
+      background: rgba(255,255,255,0.1);
+    }
+    .feature-item img {
+      width: 32px;
+      height: 32px;
+    }
+    .feature-item p {
+      margin: 0;
+      line-height: 1.4;
+      color: #eee;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: .9rem;
+      color: #aaa;
     }
   </style>
 </head>
 <body>
+
   <header>
     <h1>AlliedCyber Mentor</h1>
-    <p>Cybersecurity Mentorship. Local. Trusted. Transformational.</p>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#cohort">Cohort</a>
+      <a href="#join">Join</a>
+    </nav>
   </header>
 
-  <div class="container">
-    <div class="section">
-      <h2>About the Program</h2>
-      <p>AlliedCyber Mentor is a hands-on cybersecurity mentorship program built to guide students, professionals, and certification candidates through the skills, strategies, and support needed to succeed in real-world cyber careers. Our focus is mentorship—not just lectures.</p>
+  <section class="hero">
+    <h2>Cybersecurity Mentorship. Local. Trusted. Transformational.</h2>
+    <p>Join our next cohort for hands‑on guidance, real‑world projects,
+       and a launchpad into your dream cybersecurity career.</p>
+    <button class="cta">Reserve Your Spot</button>
+  </section>
+
+  <div class="main-grid">
+    <div class="left">
+      <div class="placeholder">Your Name Here</div>
+      <div class="placeholder">youremail@example.com</div>
+      <div class="placeholder">(505) 123‑4567</div>
+      <div class="placeholder">Address / City, State</div>
     </div>
 
-    <div class="section features">
-      <h2>What Makes Us Different</h2>
-      <ul>
-        <li>✔️ One-on-one and small group mentorship sessions</li>
-        <li>✔️ Certification preparation (CISSP, CC, CCSP, CCSE and more)</li>
-        <li>✔️ Resume building, LinkedIn polishing, and career coaching</li>
-        <li>✔️ Weekly live instruction + project-based learning</li>
-        <li>✔️ Community support and job referral connections</li>
-        <li>✔️ Affordable pricing for students, veterans, and career switchers</li>
-      </ul>
+    <div class="center">
+      <div id="about" class="section">
+        <h3>About the Program</h3>
+        <p>AlliedCyber Mentor is a hands‑on cybersecurity mentorship program built to guide students, professionals, and certification candidates through the skills, strategies, and support needed to succeed in real‑world cyber careers. Our focus is mentorship—not just lectures.</p>
+      </div>
+
+      <div class="section">
+        <h3>What Makes Us Different</h3>
+        <div class="feature-list">
+          <div class="feature-item">
+            <img src="https://img.icons8.com/fluency/48/000000/group.png" alt="Group"/>
+            <p><strong>Small-group & 1‑on‑1 support</strong> for tailored learning</p>
+          </div>
+          <div class="feature-item">
+            <img src="https://img.icons8.com/fluency/48/000000/certificate.png" alt="Certificate"/>
+            <p>Certification prep: CISSP, CC®, CCSP, CCSE & more</p>
+          </div>
+          <div class="feature-item">
+            <img src="https://img.icons8.com/fluency/48/000000/resume.png" alt="Resume"/>
+            <p>Resume & LinkedIn refinement + career coaching</p>
+          </div>
+          <div class="feature-item">
+            <img src="https://img.icons8.com/fluency/48/000000/code.png" alt="Projects"/>
+            <p>Weekly live instruction + project‑based challenges</p>
+          </div>
+          <div class="feature-item">
+            <img src="https://img.icons8.com/fluency/48/000000/community.png" alt="Community"/>
+            <p>Peer community support & job referral network</p>
+          </div>
+          <div class="feature-item">
+            <img src="https://img.icons8.com/fluency/48/000000/coins.png" alt="Affordable"/>
+            <p>Affordable pricing for students, veterans & career changers</p>
+          </div>
+        </div>
+      </div>
+
+      <div id="cohort" class="section">
+        <h3>Upcoming Cohort</h3>
+        <p>📅 Our next mentorship cohort starts <strong>August 19, 2025</strong>. Evening & weekend sessions available for maximum flexibility.</p>
+      </div>
+
+      <div class="section">
+        <h3>Who Should Join?</h3>
+        <ul>
+          <li>🎓 Recent cybersecurity graduates & college students</li>
+          <li>🪖 Military veterans transitioning to cyber careers</li>
+          <li>🧑‍💼 Working professionals pursuing certifications</li>
+          <li>🧠 Self‑taught learners seeking structured feedback</li>
+        </ul>
+      </div>
+
+      <div id="join" class="section">
+        <h3>Register Now</h3>
+        <p>Space is limited for personalized mentorship. Reserve your spot and receive a free consultation.</p>
+        <button class="cta">Join the Program</button>
+      </div>
     </div>
 
-    <div class="section">
-      <h2>Upcoming Cohort</h2>
-      <p>Our next mentorship cohort starts <strong>August 19, 2025</strong>. Designed for maximum flexibility with evening and weekend sessions available.</p>
-    </div>
-
-    <div class="section">
-      <h2>Who Should Join?</h2>
-      <p>This program is ideal for:</p>
-      <ul>
-        <li>🎓 Recent cybersecurity graduates and UNM/CNM students</li>
-        <li>🪖 Military veterans transitioning to cyber roles</li>
-        <li>🧑‍💼 Working professionals seeking guidance through certification</li>
-        <li>🧠 Self-taught learners looking for direction and feedback</li>
-      </ul>
-    </div>
-
-    <div class="section">
-      <h2>Register Now</h2>
-      <p>Space is limited to ensure personalized support. Reserve your spot today and receive a free mentorship consultation.</p>
-      <a class="cta" href="https://forms.gle/your-form-link" target="_blank">Join the Program</a>
+    <div class="right">
+      <div class="placeholder">Social Links / Icons</div>
+      <div class="placeholder">Quick FAQs</div>
+      <div class="placeholder">Testimonials Slider</div>
+      <div class="placeholder">Logo / Branding</div>
     </div>
   </div>
+
+  <footer>
+    &copy; <span id="year"></span> AlliedCyber Mentor. All rights reserved.
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
 </body>
 </html>
-
