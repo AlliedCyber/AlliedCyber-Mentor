@@ -101,11 +101,29 @@
       font-size: .95rem;
       opacity: 0.9;
     }
-    .placeholder {
-      background: rgba(255,255,255,0.1);
-      padding: .75rem;
-      border-radius: 6px;
-      font-style: italic;
+    .resource-list {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .resource {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+    .resource img {
+      width: 32px;
+      height: 32px;
+      object-fit: contain;
+    }
+    .resource a {
+      color: #eee;
+      font-weight: 600;
+      text-decoration: none;
+      transition: color .2s;
+    }
+    .resource a:hover {
+      color: var(--cyan);
     }
     .center .section {
       margin-bottom: 3rem;
@@ -182,10 +200,21 @@
 
   <div class="main-grid">
     <div class="left">
-      <div class="placeholder">Your Name Here</div>
-      <div class="placeholder">youremail@example.com</div>
-      <div class="placeholder">(505) 123‑4567</div>
-      <div class="placeholder">Address / City, State</div>
+      <h4>🔗 Resource Links</h4>
+      <div class="resource-list">
+        <div class="resource">
+          <img src="https://brandslogos.com/wp-content/uploads/thumbs/cisa-logo-1.png" alt="CISA"/>
+          <a href="https://www.cisa.gov/resources-tools/resources/free-cybersecurity-services-and-tools" target="_blank">CISA Cyber Tools</a>
+        </div>
+        <div class="resource">
+          <img src="https://www.nist.gov/sites/default/files/images/2023/03/14/nist_logo.png" alt="NIST"/>
+          <a href="https://www.nist.gov/itl/applied-cybersecurity/nice/resources/online-learning-content" target="_blank">NIST NICE Learning</a>
+        </div>
+        <div class="resource">
+          <img src="https://pauljerimy.com/wp-content/uploads/2021/01/favicon-96x96.png" alt="Paul Jerimy"/>
+          <a href="https://pauljerimy.com/security-certification-roadmap/" target="_blank">Certification Roadmap</a>
+        </div>
+      </div>
     </div>
 
     <div class="center">
